@@ -8,28 +8,32 @@ private:
 	string type;
 public:
 	galaxie();
+
+	void addSysteme(systemePlanetaire* systeme) {
+		this->systemes.push_back(systeme);
+	}
 };
 
-class galaxieSpirale
+class galaxieSpirale : public galaxie
 {
 private:
 
 public:
-	galaxieSpirale();
+	//galaxieSpirale();
 };
 
-class galaxieEliptique
+class galaxieEliptique : public galaxie
 {
 private:
 
 public:
-	galaxieEliptique();
+	//galaxieEliptique();
 };
 
-class galaxieSpiraleBaree 
+class galaxieSpiraleBaree : public galaxie
 {
 private:
 
 public:
-	galaxieSpiraleBaree();
+	//galaxieSpiraleBaree();
 };
