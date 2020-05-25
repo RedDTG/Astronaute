@@ -4,9 +4,24 @@
 class univers
 {
 private:
-	vector<galaxie*> galaxies;
+	vector<galaxie*> Q1galaxies;
+	vector<galaxie*> Q2galaxies;
+	vector<galaxie*> Q3galaxies;
+	vector<galaxie*> Q4galaxies;
+
+	int view;
 
 public:
 	univers();
+
+	void afficher(sf::RenderWindow* window);
+	void setView(int view) { this->view = view; }
+
+	vector<galaxie*> getGalaxies() { 
+		if (this->view == 1) { return this->Q1galaxies; }
+		else if (this->view == 2) { return this->Q2galaxies; }
+		else if (this->view == 3) { return this->Q3galaxies; }
+		else { return this->Q4galaxies; }
+	}
 };
 

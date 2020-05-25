@@ -6,12 +6,25 @@ class galaxie
 private:
 	vector<systemePlanetaire*> systemes;
 	string type;
+	vector<int> position;
+
+	sf::Texture* sprite;
+	sf::RectangleShape* hitbox;
+
+
 public:
-	galaxie();
+	galaxie(int posX, int posY);
 
 	void addSysteme(systemePlanetaire* systeme) {
 		this->systemes.push_back(systeme);
 	}
+	void setType(string type) { this->type = type; }
+	void setSprite(sf::Texture* sprite) { this->sprite = sprite; }
+
+	sf::Texture* getSprite() { return this->sprite; }
+	sf::RectangleShape* getHitbox() { return this->hitbox; }
+
+	void afficher(sf::RenderWindow* window);
 };
 
 class galaxieSpirale : public galaxie
@@ -19,7 +32,7 @@ class galaxieSpirale : public galaxie
 private:
 
 public:
-	//galaxieSpirale();
+	galaxieSpirale(int posX, int posY);
 };
 
 class galaxieEliptique : public galaxie
@@ -27,13 +40,13 @@ class galaxieEliptique : public galaxie
 private:
 
 public:
-	//galaxieEliptique();
+	galaxieEliptique(int posX, int posY);
 };
 
-class galaxieSpiraleBaree : public galaxie
+class galaxieSpiraleBarree : public galaxie
 {
 private:
 
 public:
-	//galaxieSpiraleBaree();
+	galaxieSpiraleBarree(int posX, int posY);
 };
