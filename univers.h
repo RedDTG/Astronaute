@@ -16,6 +16,8 @@ public:
 
 	void afficher(sf::RenderWindow* window);
 	void setView(int view) { this->view = view; }
+	void placementGalaxies();
+	bool testCoordonnees(int X, int Y, vector<int> lesX, vector<int> lesY);
 
 	vector<galaxie*> getGalaxies() { 
 		if (this->view == 1) { return this->Q1galaxies; }
