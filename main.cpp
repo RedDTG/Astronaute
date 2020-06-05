@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <cstdlib>
 
 #include "univers.h"
 #include "interface.h"
