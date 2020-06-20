@@ -14,6 +14,10 @@ private:
 	vector<module> modules;
 
 public:
+	void creationModule();
+	void creationPiece();
+	void dommageModule();
+	void dommagePiece();
 
 };
 
