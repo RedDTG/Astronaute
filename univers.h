@@ -14,7 +14,7 @@ private:
 public:
 	univers();
 
-	void afficher(sf::RenderWindow* window);
+	void afficher(sf::RenderWindow* window, sf::Vector2i mousePos);
 	void setView(int view) { this->view = view; }
 	void placementGalaxies();
 	bool testCoordonnees(int X, int Y, vector<int> lesX, vector<int> lesY);
@@ -25,5 +25,6 @@ public:
 		else if (this->view == 3) { return this->Q3galaxies; }
 		else { return this->Q4galaxies; }
 	}
+
 };
 

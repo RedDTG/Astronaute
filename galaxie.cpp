@@ -13,10 +13,12 @@ galaxie::galaxie(int posX, int posY) {
 	this->hitbox->setOrigin(hitboxRect.left + hitboxRect.width / 2.0f,
 		hitboxRect.top + hitboxRect.height / 2.0f);
 
-	this->position.push_back(posX);
-	this->position.push_back(posY);
+	//this->hitbox->setFillColor(sf::Color::Red);
 
-	this->hitbox->setPosition(this->position[0], this->position[1]);
+	this->position.x = posX;
+	this->position.y = posY;
+
+	this->hitbox->setPosition(this->position.x, this->position.y);
 }
 
 galaxieSpirale::galaxieSpirale(int posX, int posY) : galaxie(posX, posY) {
@@ -49,4 +51,10 @@ galaxieSpiraleBarree::galaxieSpiraleBarree(int posX, int posY) : galaxie(posX, p
 
 void galaxie::afficher(sf::RenderWindow* window) {
 	window->draw(*this->hitbox);
+}
+
+void galaxie::detectionClic(sf::Vector2i mousePos) {
+	if (mousePos.x <= this->position.x + 125 && mousePos.x >= this->position.x - 125 && mousePos.y <= this->position.y + 125 && mousePos.y >= this->position.y - 125) {
+		cout << this->type << endl;
+	}
 }

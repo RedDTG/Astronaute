@@ -6,7 +6,7 @@ class galaxie
 private:
 	vector<systemePlanetaire*> systemes;
 	string type;
-	vector<int> position;
+	sf::Vector2i position;
 
 	sf::Texture* sprite;
 	sf::RectangleShape* hitbox;
@@ -15,6 +15,7 @@ private:
 public:
 	galaxie(int posX, int posY);
 
+	void detectionClic(sf::Vector2i mousePos);
 	void addSysteme(systemePlanetaire* systeme) {
 		this->systemes.push_back(systeme);
 	}

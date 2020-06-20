@@ -92,26 +92,30 @@ univers::univers() {
 	}
 }
 
-void univers::afficher(sf::RenderWindow* window) {
+void univers::afficher(sf::RenderWindow* window, sf::Vector2i mousePos) {
 
 	if (this->view == 1) {
 		for (int i = 0; i < this->Q1galaxies.size(); i++) {
 			this->getGalaxies()[i]->afficher(window);
+			this->getGalaxies()[i]->detectionClic(mousePos);
 		}
 	}
 	else if (this->view == 2) {
 		for (int i = 0; i < this->Q2galaxies.size(); i++) {
 			this->getGalaxies()[i]->afficher(window);
+			this->getGalaxies()[i]->detectionClic(mousePos);
 		}
 	}
 	else if (this->view == 3) {
 		for (int i = 0; i < this->Q3galaxies.size(); i++) {
 			this->getGalaxies()[i]->afficher(window);
+			this->getGalaxies()[i]->detectionClic(mousePos);
 		}
 	}
 	else {
 		for (int i = 0; i < this->Q4galaxies.size(); i++) {
 			this->getGalaxies()[i]->afficher(window);
+			this->getGalaxies()[i]->detectionClic(mousePos);
 		}
 	}
 

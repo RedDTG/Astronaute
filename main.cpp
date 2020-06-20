@@ -13,10 +13,11 @@ int main()
 	univers* TheUniverse = new univers;
 
 	while (1) {
+		TheInterface->setMousePos(sf::Mouse::getPosition(*TheInterface->getWindow()));
 		TheInterface->detectionEvents();
 		TheInterface->getWindow()->clear();
 		TheInterface->drawBackground();
-		TheUniverse->afficher(TheInterface->getWindow());
+		TheUniverse->afficher(TheInterface->getWindow(), TheInterface->getMousePos());
 		TheInterface->getWindow()->display();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad1)) {
