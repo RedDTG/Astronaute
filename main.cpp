@@ -17,23 +17,24 @@ int main()
 		TheInterface->detectionEvents();
 		TheInterface->getWindow()->clear();
 		TheInterface->drawBackground();
-		TheUniverse->afficher(TheInterface->getWindow(), TheInterface->getMousePos());
+		TheInterface->affichageView(TheUniverse);
+		TheInterface->detectionClic(TheUniverse);
 		TheInterface->getWindow()->display();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad1)) {
-			TheUniverse->setView(1);
+			TheInterface->setView(1);
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad1)) { }
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad2)) {
-			TheUniverse->setView(2);
+			TheInterface->setView(2);
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad2)) { }
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad3)) {
-			TheUniverse->setView(3);
+			TheInterface->setView(3);
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad3)) { }
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad4)) {
-			TheUniverse->setView(4);
+			TheInterface->setView(4);
 			while (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Numpad4)) { }
 		}
 	}

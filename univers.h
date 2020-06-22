@@ -14,16 +14,15 @@ private:
 public:
 	univers();
 
-	void afficher(sf::RenderWindow* window, sf::Vector2i mousePos);
-	void setView(int view) { this->view = view; }
+	void afficher(sf::RenderWindow* window, sf::Vector2i mousePos, int view);
 	void placementGalaxies();
 	bool testCoordonnees(int X, int Y, vector<int> lesX, vector<int> lesY);
 
-	vector<galaxie*> getGalaxies() { 
-		if (this->view == 1) { return this->Q1galaxies; }
-		else if (this->view == 2) { return this->Q2galaxies; }
-		else if (this->view == 3) { return this->Q3galaxies; }
-		else { return this->Q4galaxies; }
+	vector<galaxie*> getGalaxies(int view) { 
+		if (view == 1) { return this->Q1galaxies; }
+		else if (view == 2) { return this->Q2galaxies; }
+		else if (view == 3) { return this->Q3galaxies; }
+		else if (view == 4) { return this->Q4galaxies; }
 	}
 
 };

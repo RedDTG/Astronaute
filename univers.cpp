@@ -92,31 +92,25 @@ univers::univers() {
 	}
 }
 
-void univers::afficher(sf::RenderWindow* window, sf::Vector2i mousePos) {
+void univers::afficher(sf::RenderWindow* window, sf::Vector2i mousePos, int view) {
+	int size = 0;
 
-	if (this->view == 1) {
-		for (int i = 0; i < this->Q1galaxies.size(); i++) {
-			this->getGalaxies()[i]->afficher(window);
-			this->getGalaxies()[i]->detectionClic(mousePos);
-		}
+	if (view == 1) {
+		size = this->Q1galaxies.size();
 	}
-	else if (this->view == 2) {
-		for (int i = 0; i < this->Q2galaxies.size(); i++) {
-			this->getGalaxies()[i]->afficher(window);
-			this->getGalaxies()[i]->detectionClic(mousePos);
-		}
+	else if (view == 2) {
+		size = this->Q2galaxies.size();
 	}
-	else if (this->view == 3) {
-		for (int i = 0; i < this->Q3galaxies.size(); i++) {
-			this->getGalaxies()[i]->afficher(window);
-			this->getGalaxies()[i]->detectionClic(mousePos);
-		}
+	else if (view == 3) {
+		size = this->Q3galaxies.size();
+
 	}
-	else {
-		for (int i = 0; i < this->Q4galaxies.size(); i++) {
-			this->getGalaxies()[i]->afficher(window);
-			this->getGalaxies()[i]->detectionClic(mousePos);
-		}
+	else if (view == 4) {
+		size = this->Q4galaxies.size();
+	}
+
+	for (int i = 0; i < size ; i++) {
+		this->getGalaxies(view)[i]->afficher(window);
 	}
 
 }

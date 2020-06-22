@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "univers.h"
 
 class interface
 {
@@ -10,6 +11,12 @@ private:
 
 	sf::Vector2i mousePos;
 	sf::CircleShape* mouseHitbox;
+
+	galaxie* galaxieView;
+	systemePlanetaire* systemeView;
+	planete* planeteView;
+
+	int view;
 
 public:
 	interface();
@@ -22,6 +29,11 @@ public:
 		this->mouseHitbox->setPosition(this->mousePos.x, this->mousePos.y);
 	}
 
+	void setView(int view) { this->view = view; }
+	int getView() { return this->view; }
+
+	void affichageView(univers* TheUniverse);
+	void detectionClic(univers* TheUniverse);
 	void detectionEvents();
 	void drawBackground();
 };

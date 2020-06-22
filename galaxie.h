@@ -24,8 +24,11 @@ public:
 
 	sf::Texture* getSprite() { return this->sprite; }
 	sf::RectangleShape* getHitbox() { return this->hitbox; }
+	sf::Vector2i getPosition() { return this->position; }
+	string getType() { return this->type; }
 
 	void afficher(sf::RenderWindow* window);
+	void afficherSystemes(sf::RenderWindow* window);
 };
 
 class galaxieSpirale : public galaxie

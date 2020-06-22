@@ -3,9 +3,12 @@ galaxie::galaxie(int posX, int posY) {
 	int nbSystemes = rand() % (10 - 4) + 4;
 
 	for (int i = 0; i < nbSystemes; i++) {
+		sf::Vector2i position;
+		position.x = rand() % (1500 - 200) + 200;
+		position.y = rand() % (700 - 250) + 200;
 		int leRand = rand() % 2;
-		if (leRand == 0) { this->addSysteme(new systemePlanetaire()); }
-		else if (leRand == 1) { this->addSysteme(new systemePlanetaire()); }
+		if (leRand == 0) { this->addSysteme(new systemePlanetaire(position)); } //jsp pk c'est comme ca je verrais plus tard
+		else if (leRand == 1) { this->addSysteme(new systemePlanetaire(position)); }
 	}
 
 	this->hitbox = new sf::RectangleShape(sf::Vector2f(250, 250));
@@ -53,8 +56,8 @@ void galaxie::afficher(sf::RenderWindow* window) {
 	window->draw(*this->hitbox);
 }
 
-void galaxie::detectionClic(sf::Vector2i mousePos) {
-	if (mousePos.x <= this->position.x + 125 && mousePos.x >= this->position.x - 125 && mousePos.y <= this->position.y + 125 && mousePos.y >= this->position.y - 125) {
-		cout << this->type << endl;
+void galaxie::afficherSystemes(sf::RenderWindow* window) {
+	for (int i = 0; i < this->systemes.size(); i++) {
+		this->systemes[i]->afficher(window);
 	}
 }

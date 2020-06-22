@@ -1,6 +1,8 @@
 #include "interface.h"
 
 interface::interface() {
+	this->view = 1;
+
 	this->window = new sf::RenderWindow(sf::VideoMode(1700, 900), "Astronaute", sf::Style::Close);
 	this->background = new sf::RectangleShape(sf::Vector2f(1700, 900));
 	this->spriteBackground = new sf::Texture;
@@ -33,5 +35,43 @@ void interface::detectionEvents() {
 void interface::drawBackground() {
 	this->window->draw(*this->background);
 	//this->window->draw(*this->mouseHitbox);
+}
+
+void interface::affichageView(univers* TheUniverse) {
+	if (this->view == 0) {
+		//je mettrais l'ecran titre ici
+	}
+
+	else if (this->view >= 1 && this->view <=4) {
+		TheUniverse->afficher(this->window, this->mousePos, this->view);
+	}
+
+	else if (this->view == 5) {
+		this->galaxieView->afficherSystemes(this->window);
+	}
+}
+
+void interface::detectionClic(univers* TheUniverse) {
+	bool isClic = 0;
+
+	if (this->view >= 1 && this->view <= 4) {
+		for (int i = 0; i < TheUniverse->getGalaxies(this->view).size(); i++) {
+			if (this->mousePos.x <= TheUniverse->getGalaxies(this->view)[i]->getPosition().x + 125
+				&& mousePos.x >= TheUniverse->getGalaxies(this->view)[i]->getPosition().x - 125
+				&& mousePos.y <= TheUniverse->getGalaxies(this->view)[i]->getPosition().y + 125
+				&& mousePos.y >= TheUniverse->getGalaxies(this->view)[i]->getPosition().y - 125) {
+
+				cout << TheUniverse->getGalaxies(this->view)[i]->getType() << endl;
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+					this->galaxieView = TheUniverse->getGalaxies(this->view)[i];
+					isClic = 1;
+				}
+			}
+		}
+	}
+
+	if (isClic == 1) {
+		this->view = 5;
+	}
 
 }
