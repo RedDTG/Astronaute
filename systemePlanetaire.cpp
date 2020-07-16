@@ -1,6 +1,6 @@
 #include "systemePlanetaire.h"
 
-systemePlanetaire::systemePlanetaire(sf::Vector2i position) {
+systemePlanetaire::systemePlanetaire(int posX, int posY) {
 	int nbPlanetes = rand() % (10 - 4) + 4;
 	
 	for (int i = 0; i < nbPlanetes; i++) {
@@ -9,12 +9,13 @@ systemePlanetaire::systemePlanetaire(sf::Vector2i position) {
 		else if (leRand == 1) { this->planetes.push_back(new planeteGazeuse()); }
 	}
 
-	this->hitbox = new sf::RectangleShape(sf::Vector2f(50, 50));
+	this->hitbox = new sf::RectangleShape(sf::Vector2f(100, 100));
 	sf::FloatRect hitboxRect = this->hitbox->getLocalBounds();
 	this->hitbox->setOrigin(hitboxRect.left + hitboxRect.width / 2.0f,
 		hitboxRect.top + hitboxRect.height / 2.0f);
 	
-	this->position = position;
+	this->position.x = posX;
+	this->position.y = posY;
 	this->hitbox->setPosition(this->position.x, this->position.y);
 	
 	this->sprite = new sf::Texture;

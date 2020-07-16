@@ -29,6 +29,7 @@ public:
 
 	void afficher(sf::RenderWindow* window);
 	void afficherSystemes(sf::RenderWindow* window);
+	bool testCoordonnees(int X, int Y, vector<int> lesX, vector<int> lesY);
 };
 
 class galaxieSpirale : public galaxie
@@ -54,3 +55,4 @@ private:
 public:
 	galaxieSpiraleBarree(int posX, int posY);
 };
+

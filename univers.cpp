@@ -115,10 +115,6 @@ void univers::afficher(sf::RenderWindow* window, sf::Vector2i mousePos, int view
 
 }
 
-void univers::placementGalaxies() {
-	int Pos1X;
-	int Pos1Y;
-}
 
 bool univers::testCoordonnees(int X, int Y, vector<int> lesX, vector<int> lesY) {
 	for (int i = 0; i < lesX.size(); i++) {

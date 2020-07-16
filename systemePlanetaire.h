@@ -10,7 +10,7 @@ private:
 	sf::RectangleShape* hitbox;
 	
 public:
-	systemePlanetaire(sf::Vector2i position);
+	systemePlanetaire(int posX, int posY);
 
 	void afficher(sf::RenderWindow* window); 
 };

@@ -1,14 +1,28 @@
 #include "galaxie.h"
 galaxie::galaxie(int posX, int posY) { 
 	int nbSystemes = rand() % (10 - 4) + 4;
+	vector<int> lesCoX;
+	vector<int> lesCoY;
+	int systPosX;
+	int systPosY;
+
+	systPosX = rand() % (1500 - 200) + 200;
+	systPosY = rand() % (700 - 250) + 200;
 
 	for (int i = 0; i < nbSystemes; i++) {
-		sf::Vector2i position;
-		position.x = rand() % (1500 - 200) + 200;
-		position.y = rand() % (700 - 250) + 200;
-		int leRand = rand() % 2;
-		if (leRand == 0) { this->addSysteme(new systemePlanetaire(position)); } //jsp pk c'est comme ca je verrais plus tard
-		else if (leRand == 1) { this->addSysteme(new systemePlanetaire(position)); }
+
+		lesCoX.push_back(systPosX);
+		lesCoY.push_back(systPosY);
+
+		this->addSysteme(new systemePlanetaire(systPosX, systPosY));
+
+		systPosX = rand() % (1500 - 200) + 200;
+		systPosY = rand() % (700 - 250) + 200;
+		while (this->testCoordonnees(systPosX, systPosY, lesCoX, lesCoY)) {
+			systPosX = rand() % (1500 - 200) + 200;
+			systPosY = rand() % (700 - 250) + 200;
+		}
+
 	}
 
 	this->hitbox = new sf::RectangleShape(sf::Vector2f(250, 250));
@@ -60,4 +74,14 @@ void galaxie::afficherSystemes(sf::RenderWindow* window) {
 	for (int i = 0; i < this->systemes.size(); i++) {
 		this->systemes[i]->afficher(window);
 	}
+}
+
+bool galaxie::testCoordonnees(int X, int Y, vector<int> lesX, vector<int> lesY) {
+	for (int i = 0; i < lesX.size(); i++) {
+		if ((X < lesX[i] + 150) && (X > lesX[i] - 150) && ((Y < lesY[i] + 150) && (Y > lesY[i] - 150))) {
+			return true;
+		}
+	}
+
+	return false;
 }
