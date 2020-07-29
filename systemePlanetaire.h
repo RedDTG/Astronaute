@@ -9,6 +9,8 @@ private:
 	sf::Texture* sprite;
 	sf::RectangleShape* hitbox;
 	
+	vector<sf::CircleShape*> cercles;
+	
 public:
 	systemePlanetaire(int posX, int posY);
 
