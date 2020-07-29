@@ -26,6 +26,7 @@ public:
 	sf::RectangleShape* getHitbox() { return this->hitbox; }
 	sf::Vector2i getPosition() { return this->position; }
 	string getType() { return this->type; }
+	vector<systemePlanetaire*> getSystemes() { return this->systemes; }
 
 	void afficher(sf::RenderWindow* window);
 	void afficherSystemes(sf::RenderWindow* window);

@@ -70,7 +70,23 @@ void interface::detectionClic(univers* TheUniverse) {
 		}
 	}
 
-	if (isClic == 1) {
+	if (this->view == 5) {
+		for (int i = 0; i < this->galaxieView->getSystemes().size(); i++) {
+			if (this->mousePos.x <= this->galaxieView->getSystemes()[i]->getPosition().x + 70
+				&& mousePos.x >= this->galaxieView->getSystemes()[i]->getPosition().x - 70
+				&& mousePos.y <= this->galaxieView->getSystemes()[i]->getPosition().y + 70
+				&& mousePos.y >= this->galaxieView->getSystemes()[i]->getPosition().y - 70) {
+
+				cout << "Il y a " << this->galaxieView->getSystemes()[i]->getNombre() << " planetes dans ce systeme" << endl;
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+					this->systemeView = this->galaxieView->getSystemes()[i];
+					isClic = 1;
+				}
+			}
+		}
+	}
+
+	if (isClic == 1 && (this->view >= 1 && this->view <= 4)) {
 		this->view = 5;
 	}
 

@@ -12,6 +12,9 @@ private:
 public:
 	systemePlanetaire(int posX, int posY);
 
+	sf::Vector2i getPosition() { return this->position; }
+	int getNombre() { return this->planetes.size(); }
+
 	void afficher(sf::RenderWindow* window); 
 };
 

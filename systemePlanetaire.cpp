@@ -19,7 +19,7 @@ systemePlanetaire::systemePlanetaire(int posX, int posY) {
 	this->hitbox->setPosition(this->position.x, this->position.y);
 	
 	this->sprite = new sf::Texture;
-	this->sprite->loadFromFile("sprites/systemes/sun.png");
+	this->sprite->loadFromFile("sprites/planetes/sun.png");
 	this->hitbox->setTexture(this->sprite); 
 }
 

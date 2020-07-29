@@ -60,7 +60,7 @@ galaxieEliptique::galaxieEliptique(int posX, int posY) : galaxie(posX, posY) {
 }
 
 galaxieSpiraleBarree::galaxieSpiraleBarree(int posX, int posY) : galaxie(posX, posY) {
-	this->setType("Spirale Barr�e");
+	this->setType("Spirale Barree");
 	this->setSprite(new sf::Texture);
 	int randSprite = rand() % 3;
 	if (randSprite == 0) { this->getSprite()->loadFromFile("sprites/galaxies/spirales_barrees/barree1.png"); }
