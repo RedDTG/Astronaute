@@ -1,14 +1,12 @@
 #include <iostream>
 #include <time.h>
 #include <cstdlib>
-
 #include "univers.h"
 #include "interface.h"
 
 int main()
 {
 	srand(time(NULL));
-	
 	interface* TheInterface = new interface;
 	univers* TheUniverse = new univers;
 

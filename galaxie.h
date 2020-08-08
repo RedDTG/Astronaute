@@ -15,7 +15,6 @@ private:
 public:
 	galaxie(int posX, int posY);
 
-	void detectionClic(sf::Vector2i mousePos);
 	void addSysteme(systemePlanetaire* systeme) {
 		this->systemes.push_back(systeme);
 	}

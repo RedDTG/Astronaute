@@ -7,6 +7,8 @@ univers::univers() {
 	vector<int> lesCoX;
 	vector<int> lesCoY;
 
+	cout << "Generation : 0/4 !" << endl;
+
 	int nbGalaxiesQ1 = rand() % (5 - 1) + 1;
 	for (int i = 0; i < nbGalaxiesQ1; i++) {
 		int leRandQ1 = rand() % 3;
@@ -24,6 +26,8 @@ univers::univers() {
 		}
 	
 	}
+
+	cout << "Generation : 1/4 !" << endl;
 
 	CoX = rand() % (1500 - 200) + 200;
 	CoY = rand() % (700 - 250) + 200;
@@ -47,6 +51,8 @@ univers::univers() {
 		}
 	}
 
+	cout << "Generation : 2/4 !" << endl;
+
 	CoX = rand() % (1500 - 200) + 200;
 	CoY = rand() % (700 - 250) + 200;
 	lesCoX.clear();
@@ -69,6 +75,8 @@ univers::univers() {
 		}
 	}
 
+	cout << "Generation : 3/4 !" << endl;
+
 	CoX = rand() % (1500 - 200) + 200;
 	CoY = rand() % (700 - 250) + 200;
 	lesCoX.clear();
@@ -90,6 +98,8 @@ univers::univers() {
 			CoY = rand() % (700 - 250) + 200;
 		}
 	}
+
+	cout << "Generation : 4/4 !" << endl;
 }
 
 void univers::afficher(sf::RenderWindow* window, sf::Vector2i mousePos, int view) {

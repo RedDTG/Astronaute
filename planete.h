@@ -16,11 +16,16 @@ private:
 	// 0 : Charbon | 1 : Fer | 2 : Gaz naturel
 	// 3 : Pétrole | 4 : Vie
 
+	sf::RectangleShape* hitbox;
+	sf::Texture* sprite;
+	sf::Vector2i position;
+
 	vector<string> couches;
 	vector<int> tailleCouches;
 
+
 public:
-	planete();
+	planete(int posX, int posY);
 	string getNom() { return this->nom; };
 	string getType() { return this->type; };
 	int getRessources(int type) { return this->ressources[type]; };
@@ -35,21 +40,24 @@ public:
 		this->ressources.push_back(vie);
 	}
 	void setSousType(string sousType) { this->sousType = sousType; }
+	void setSprite(string path) { this->sprite->loadFromFile(path);
+								  this->hitbox->setTexture(this->sprite); }
 
-	void afficherPlanete();
+	void oldAfficher();
+	void afficher(sf::RenderWindow* window);
 };
 
 class planeteGazeuse : public planete {
 private:
 
 public:
-	planeteGazeuse();
+	planeteGazeuse(int planPosX, int planPosY);
 };
 
 class planeteTellurique : public planete {
 private:
 
 public:
-	planeteTellurique();
+	planeteTellurique(int planPosX, int planPosY);
 };
 

@@ -18,5 +18,8 @@ public:
 	int getNombre() { return this->planetes.size(); }
 
 	void afficher(sf::RenderWindow* window); 
+
+	void afficherPlanetes(sf::RenderWindow* window);
+
 };
 

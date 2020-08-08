@@ -49,6 +49,10 @@ void interface::affichageView(univers* TheUniverse) {
 	else if (this->view == 5) {
 		this->galaxieView->afficherSystemes(this->window);
 	}
+
+	else if (this->view == 6) {
+		this->systemeView->afficherPlanetes(this->window);
+	}
 }
 
 void interface::detectionClic(univers* TheUniverse) {
@@ -66,6 +70,7 @@ void interface::detectionClic(univers* TheUniverse) {
 					this->galaxieView = TheUniverse->getGalaxies(this->view)[i];
 					isClic = 1;
 				}
+				while (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) { }
 			}
 		}
 	}
@@ -82,12 +87,20 @@ void interface::detectionClic(univers* TheUniverse) {
 					this->systemeView = this->galaxieView->getSystemes()[i];
 					isClic = 1;
 				}
+				while (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) { }
 			}
 		}
 	}
 
+
 	if (isClic == 1 && (this->view >= 1 && this->view <= 4)) {
 		this->view = 5;
+		isClic = 0;
+	}
+
+	if (isClic == 1 && this->view == 5) {
+		this->view = 6;
+		isClic = 0;
 	}
 
 }

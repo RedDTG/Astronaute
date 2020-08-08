@@ -18,6 +18,8 @@ galaxie::galaxie(int posX, int posY) {
 
 		this->addSysteme(new systemePlanetaire(systPosX, systPosY));
 
+		cout << "Nouveau systeme cree !" << endl;
+
 		systPosX = rand() % (1500 - 200) + 200;
 		systPosY = rand() % (700 - 250) + 200;
 		while (this->testCoordonnees(systPosX, systPosY, lesCoX, lesCoY)) {
@@ -80,7 +82,7 @@ void galaxie::afficherSystemes(sf::RenderWindow* window) {
 
 bool galaxie::testCoordonnees(int X, int Y, vector<int> lesX, vector<int> lesY) {
 	for (int i = 0; i < lesX.size(); i++) {
-		if ((X < lesX[i] + 150) && (X > lesX[i] - 150) && ((Y < lesY[i] + 150) && (Y > lesY[i] - 150))) {
+		if ((X < lesX[i] + 200) && (X > lesX[i] - 200) && ((Y < lesY[i] + 200) && (Y > lesY[i] - 200))) {
 			return true;
 		}
 	}
