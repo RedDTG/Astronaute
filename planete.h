@@ -19,16 +19,18 @@ private:
 	sf::RectangleShape* hitbox;
 	sf::Texture* sprite;
 	sf::Vector2i position;
-
-	vector<string> couches;
-	vector<int> tailleCouches;
-
+	vector<sf::CircleShape*> couches;
+	vector<sf::Color*> couleurs;
 
 public:
 	planete(int posX, int posY);
 	string getNom() { return this->nom; };
 	string getType() { return this->type; };
+	string getSousType() { return this->sousType; }
 	int getRessources(int type) { return this->ressources[type]; };
+	sf::Vector2i getPosition() { return this->position; }
+	vector<sf::CircleShape*> getCouches() { return this->couches; }
+	sf::Color* getCouleur(int i) { return this->couleurs[i]; }
 
 	void setNom(string nom) { this->nom = nom; };
 	void setType(string type) { this->type = type; }
@@ -42,9 +44,11 @@ public:
 	void setSousType(string sousType) { this->sousType = sousType; }
 	void setSprite(string path) { this->sprite->loadFromFile(path);
 								  this->hitbox->setTexture(this->sprite); }
+	void addCouche(sf::CircleShape* newCouche) { this->couches.push_back(newCouche); }
 
 	void oldAfficher();
 	void afficher(sf::RenderWindow* window);
+	void afficherCouches(sf::RenderWindow* window);
 };
 
 class planeteGazeuse : public planete {

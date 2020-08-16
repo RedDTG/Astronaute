@@ -29,7 +29,7 @@ univers::univers() {
 
 	cout << "Generation : 1/4 !" << endl;
 
-	CoX = rand() % (1500 - 200) + 200;
+	/*CoX = rand() % (1500 - 200) + 200;
 	CoY = rand() % (700 - 250) + 200;
 	lesCoX.clear();
 	lesCoY.clear();
@@ -99,7 +99,7 @@ univers::univers() {
 		}
 	}
 
-	cout << "Generation : 4/4 !" << endl;
+	cout << "Generation : 4/4 !" << endl;*/
 }
 
 void univers::afficher(sf::RenderWindow* window, sf::Vector2i mousePos, int view) {

@@ -16,6 +16,7 @@ public:
 
 	sf::Vector2i getPosition() { return this->position; }
 	int getNombre() { return this->planetes.size(); }
+	vector<planete*> getPlanetes() { return this->planetes; }
 
 	void afficher(sf::RenderWindow* window); 
 

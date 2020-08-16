@@ -12,6 +12,12 @@ planete::planete(int posX, int posY) {
 	this->hitbox->setPosition(this->position.x, this->position.y);
 
 	this->sprite = new sf::Texture;
+
+	this->couleurs.push_back(new sf::Color(71, 71, 71));
+	this->couleurs.push_back(new sf::Color(175, 175, 175));
+	this->couleurs.push_back(new sf::Color(209, 250, 164));
+	this->couleurs.push_back(new sf::Color(55, 0, 113));
+	this->couleurs.push_back(new sf::Color(19, 207, 0));
 }
 
 planeteTellurique::planeteTellurique(int posX, int posY) : planete(posX, posY) {
@@ -40,7 +46,17 @@ planeteTellurique::planeteTellurique(int posX, int posY) : planete(posX, posY) {
 		this->setSousType("Terre");
 		this->setSprite("sprites/planetes/telluriques/terre.png");
 	}
-
+	
+	for (int i = 0; i < 5; i++) {
+		this->addCouche(new sf::CircleShape(this->getRessources(i) * 10));
+		this->getCouches()[i]->setFillColor(*this->getCouleur(i));
+		this->getCouches()[i]->setOutlineColor(sf::Color::White);
+		this->getCouches()[i]->setOutlineThickness(-1);
+		sf::FloatRect couchesRect = this->getCouches()[i]->getLocalBounds();
+		this->getCouches()[i]->setOrigin(couchesRect.left + couchesRect.width / 2.0f,
+			couchesRect.top + couchesRect.height / 2.0f);
+		this->getCouches()[i]->setPosition(850, 900);
+	}
 }
 
 planeteGazeuse::planeteGazeuse(int posX, int posY) : planete(posX, posY) {
@@ -65,10 +81,27 @@ planeteGazeuse::planeteGazeuse(int posX, int posY) : planete(posX, posY) {
 		this->setSousType("Jupirer Tres Chaud");
 		this->setSprite("sprites/planetes/gazeuses/chaud.png");
 	}
+
+	for (int i = 0; i < 5; i++) {
+		this->addCouche(new sf::CircleShape(this->getRessources(i) * 3));
+		this->getCouches()[i]->setFillColor(*this->getCouleur(i));
+		this->getCouches()[i]->setOutlineColor(sf::Color::White);
+		this->getCouches()[i]->setOutlineThickness(-5);
+		sf::FloatRect couchesRect = this->getCouches()[i]->getLocalBounds();
+		this->getCouches()[i]->setOrigin(couchesRect.left + couchesRect.width / 2.0f,
+			couchesRect.top + couchesRect.height / 2.0f);
+		this->getCouches()[i]->setPosition(850, 900);
+	}
 }
 
 void planete::afficher(sf::RenderWindow* window) {
 	window->draw(*this->hitbox);
+}
+
+void planete::afficherCouches(sf::RenderWindow* window) {
+	for (int i = 0; i < 5; i++) {
+		window->draw(*this->couches[i]);
+	}
 }
 
 void planete::oldAfficher() {

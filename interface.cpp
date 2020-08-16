@@ -53,6 +53,10 @@ void interface::affichageView(univers* TheUniverse) {
 	else if (this->view == 6) {
 		this->systemeView->afficherPlanetes(this->window);
 	}
+
+	else if (this->view == 7) {
+		this->planeteView->afficherCouches(this->window);
+	}
 }
 
 void interface::detectionClic(univers* TheUniverse) {
@@ -92,6 +96,23 @@ void interface::detectionClic(univers* TheUniverse) {
 		}
 	}
 
+	if (this->view == 6) {
+		for (int i = 0; i < this->systemeView->getNombre(); i++) {
+			if (this->mousePos.x <= this->systemeView->getPlanetes()[i]->getPosition().x + 70
+				&& mousePos.x >= this->systemeView->getPlanetes()[i]->getPosition().x - 70
+				&& mousePos.y <= this->systemeView->getPlanetes()[i]->getPosition().y + 70
+				&& mousePos.y >= this->systemeView->getPlanetes()[i]->getPosition().y - 70) {
+
+				cout << "Cette planete est de type " << this->systemeView->getPlanetes()[i]->getType() << " et de sous-type " << this->systemeView->getPlanetes()[i]->getSousType() << endl;
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+					this->planeteView = this->systemeView->getPlanetes()[i];
+					isClic = 1;
+				}
+				while (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {}
+			}
+		}
+	}
+
 
 	if (isClic == 1 && (this->view >= 1 && this->view <= 4)) {
 		this->view = 5;
@@ -100,6 +121,11 @@ void interface::detectionClic(univers* TheUniverse) {
 
 	if (isClic == 1 && this->view == 5) {
 		this->view = 6;
+		isClic = 0;
+	}
+
+	if (isClic == 1 && this->view == 6) {
+		this->view = 7;
 		isClic = 0;
 	}
 
